@@ -1,1 +1,9 @@
 Keyjam. Turns your PC keyboard into a MIDI sampler pad.
+
+Written in Perl 5.
+
+Dependencies:
+perlqt4 (QtCore4, QtGui4)
+MIDI::ALSA (try force install through cpan if test #35 fails - it's okay :)
+
+This is simply a MIDI instrument. It does not synthesize sound on its own. You will need to install a software synthesizer or use a hardware synthesizer with the necessary MIDI interfaces to make it work. Right now Keyjam uses only ALSA for MIDI connections. JACK is optional but highly recommended.
