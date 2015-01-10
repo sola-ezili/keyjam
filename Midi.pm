@@ -9,9 +9,7 @@ use Console;
 
 sub init_alsa {
 	&Console::out("init_alsa()", "Midi");
-	MIDI::ALSA::client( 'KeyJam', 1, 1, 0 );
-	MIDI::ALSA::connectfrom( 0, 14, 0 );  # input port is lower (0)
-	MIDI::ALSA::connectto( 1, 20, 0 );   # output port is higher (1)
+	MIDI::ALSA::client( 'KeyJam', 0, 1, 0 );
 }
 
 sub note_on {
@@ -37,19 +35,4 @@ sub note_off {
 }
 
 1;
-
-		#my @alsaevent = MIDI::ALSA::input();
-		#if ($alsaevent[0] == SND_SEQ_EVENT_PORT_UNSUBSCRIBED()) { last; }
-		#if ($alsaevent[0] == SND_SEQ_EVENT_NOTEON()) {
-		#    my $channel  = $alsaevent[7][0];
-		#    my $pitch    = $alsaevent[7][1];
-		#    my $velocity = $alsaevent[7][2];
-		#    print "NOTEON: $channel $pitch $velocity\n";
-		#} elsif ($alsaevent[0] == SND_SEQ_EVENT_CONTROLLER()) {
-		#    my $channel    = $alsaevent[7][0];
-		#    my $controller = $alsaevent[7][4];
-		#    my $value      = $alsaevent[7][5];
-		#    print "CONTROLLER: $channel $controller $value\n";
-		#}
-		#MIDI::ALSA::output( @alsaevent );
 

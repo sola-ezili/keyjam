@@ -5,11 +5,11 @@
 #
 #        USAGE: ./keyjam.pl  
 #
-#  DESCRIPTION: 
+#  DESCRIPTION: Turns your PC keyboard into a MIDI sampler pad.
 #
 #      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
+# REQUIREMENTS: MIDI::ALSA; perlqt4 
+#         BUGS: yes.
 #        NOTES: ---
 #       AUTHOR: sola (ScandalousSola@gmail.com), 
 # ORGANIZATION: 
@@ -23,10 +23,7 @@ use warnings;
 use utf8;
 
 use QtCore4;
-use QtGui4;
 use MainWindow;
-
-use MIDI::ALSA(':CONSTS');
 
 sub main {
 	my $app = Qt::Application( \@ARGV );
