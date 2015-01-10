@@ -22,7 +22,7 @@ use Console;
 sub NEW {
 	my ($class, $parent, $note, $channel) = @_;
 	$class->SUPER::NEW( $parent );
-	&Console::out("NEW($note, $channel)", "NoteDialog");
+	&Console::debug("NEW($note, $channel)", "NoteDialog");
 
 	this->setModal(1);
 	$note = 64 unless (defined($note));

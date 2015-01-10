@@ -24,7 +24,7 @@ use Console;
 sub NEW {
 	my ($class, $parent, $row, $step, $note, $channel) = @_;
 	$class->SUPER::NEW( $parent );
-	&Console::out("NEW($row, $step, $note, $channel)", "Button");
+	&Console::debug("NEW($row, $step, $note, $channel)", "Button");
 	this->{row} = $row;
 	this->{step} = $step;
 	this->{note} = $note;

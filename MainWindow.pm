@@ -27,7 +27,7 @@ use Console;
 sub NEW {
 	shift->SUPER::NEW(@_);
 
-	&Console::out("NEW()", "MainWindow");
+	&Console::debug("NEW()", "MainWindow");
 	createActions();
 	createMenus();
 	createStatusBar();
@@ -199,7 +199,7 @@ sub createButtons {
 			my $note = 60;
 			my $channel = $i - 1;
 			foreach my $kc (keys this->{bindings}) {
-				&Console::out($kc, "MainWindow");
+				&Console::debug("binding key $kc..", "MainWindow");
 				if (this->{bindings}->{$kc}{row} == $i and this->{bindings}->{$kc}{step} == $j) {
 					$note = this->{bindings}->{$kc}{note};
 					$channel = this->{bindings}->{$kc}{channel};
@@ -323,7 +323,7 @@ sub saveAs {
 
 sub onButtonClicked {
 	my ($row, $step) = @_;
-	print "CLICKED $row, $step\n";
+	&Console::debug("onButtonClicked($row, $step)", "MainWindow");
 }
 
 1;

@@ -6,6 +6,12 @@ use utf8;
 
 use Data::Dumper;
 
+our $debug = 0;
+
+###
+# methods
+###
+
 sub out {
 	my ($msg, $sender) = @_;
 	return unless defined($msg);
@@ -19,6 +25,21 @@ sub out {
 	} else {
 		print "$msg\n";
 	}
+}
+
+sub debug {
+	return unless (defined($debug) and $debug == 1);
+	my ($msg, $sender) = @_;
+	
+	return unless defined($msg);
+
+	if (defined($sender)) {
+		$sender = "[debug] $sender";
+	} else {
+		$sender = "[debug]";
+	}
+
+	&out($msg, $sender);
 }
 
 1;
