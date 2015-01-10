@@ -31,7 +31,6 @@ sub NEW {
 	&Console::out("NEW()", "MainWindow");
 	createActions();
 	createMenus();
-	#createToolBars();
 	createStatusBar();
 
 	this->{bindings} = {
@@ -91,7 +90,6 @@ sub keyPressEvent {
 	}
 
 	my $kc = $event->key();
-	#print "PRESS: " . $kc . "\n";
 	if (this->{bindings}->{$kc}) {
 		my $down = this->{bindings}->{$kc}{down};
 		if ($down == 0) {
@@ -101,7 +99,6 @@ sub keyPressEvent {
 			my $button = this->{buttons}->[$row]{$step};
 			my $note = $button->note();
 			my $channel = $button->channel();
-			#print "row: $row ; step: $step ; note: $note ; down: $down\n";
 			&Midi::note_on($channel, $note);
 			$event->accept();
 		} else {
@@ -120,7 +117,6 @@ sub keyReleaseEvent {
 	}
 
 	my $kc = $event->key();
-	#print "RELEASE: " . $kc . "\n";
 	if (this->{bindings}->{$kc}) {
 		my $down = this->{bindings}->{$kc}{down};
 		if ($down == 1) { 
@@ -130,7 +126,6 @@ sub keyReleaseEvent {
 			my $button = this->{buttons}->[$row]{$step};
 			my $note = $button->note();
 			my $channel = $button->channel();
-			#print "row: $row ; step: $step ; note: $note ; down: $down\n";
 			&Midi::note_off($channel, $note);
 			$event->accept();
 		} else {
@@ -201,11 +196,6 @@ sub createButtons {
 	my $channelLabel = Qt::Label("Channels");
 	$layout->addWidget($channelLabel, 0, 0);
 	for (my $i = 1; $i < 5; ++$i) {
-		#this->spinBoxes->[$i] = Qt::SpinBox(this);
-		#this->spinBoxes->[$i]->setMinimum(0);
-		#this->spinBoxes->[$i]->setMaximum(15);
-		#this->spinBoxes->[$i]->setValue($i - 1);
-		#$layout->addWidget(this->spinBoxes->[$i], $i, 0);
 		for (my $j = 1; $j < 9; ++$j) {
 			my $note = 60;
 			my $channel = $i - 1;

@@ -36,11 +36,6 @@ sub NEW {
 	my $noteLabel = Qt::Label("Note");
 	$layout->addWidget($noteLabel, 0, 0);
 
-	#this->{noteSpinBox} = Qt::SpinBox(undef);
-	#this->{noteSpinBox}->setMinimum(0);
-	#this->{noteSpinBox}->setMaximum(127);
-	#this->{noteSpinBox}->setValue($note);
-	#$layout->addWidget(this->{noteSpinBox}, 0, 1);
 	my $noteSpinBox = Qt::SpinBox(this);
 	$noteSpinBox->setMinimum(0);
 	$noteSpinBox->setMaximum(127);
@@ -51,11 +46,6 @@ sub NEW {
 	my $channelLabel = Qt::Label("Channel");
 	$layout->addWidget($channelLabel, 1, 0);
 
-	#this->{channelSpinBox} = Qt::SpinBox(undef);
-	#this->{channelSpinBox}->setMinimum(0);
-	#this->{channelSpinBox}->setMaximum(15);
-	#this->{channelSpinBox}->setValue($channel);
-	#$layout->addWidget(this->{channelSpinBox}, 1, 1);
 	my $channelSpinBox = Qt::SpinBox(this);
 	$channelSpinBox->setMinimum(0);
 	$channelSpinBox->setMaximum(15);

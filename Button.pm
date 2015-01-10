@@ -62,13 +62,6 @@ sub channel() {
 ###
 
 sub onClick {
-	#if (!defined(this->{dialog}) || !this->{dialog}) {
-		#this->{dialog} = NoteDialog(this, this->{note}, this->{channel});
-
-		#this->connect(this->{dialog}, SIGNAL 'noteChanged(int)', this, SLOT 'setNote(int)');
-		#this->connect(this->{dialog}, SIGNAL 'channelChanged(int)', this, SLOT 'setChannel(int)');
-	#}
-
 	this->{dialog}->show();
 
 	emit buttonClicked(this->{row}, this->{step});
