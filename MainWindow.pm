@@ -74,7 +74,8 @@ sub NEW {
 	this->createButtons();
 	this->setCentralWidget(this->{gridGroupBox});
 
-	&Midi::init_alsa();
+	this->{midi} = Midi(this);
+
 }
 
 ###
