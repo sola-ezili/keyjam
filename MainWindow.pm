@@ -3,7 +3,6 @@ package MainWindow;
 use strict;
 
 use File::Basename;
-use Data::Dumper;
 
 use QtCore4;
 use QtCore4::debug qw(ambiguous);
